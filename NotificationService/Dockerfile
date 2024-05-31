@@ -27,4 +27,4 @@ ENV PLAY_HTTP_SECRET=pndkmnrxewdssdduxpopfersdikfjdieihgymuzkhrrmhniypjweqzhjgsc
 
 
 # Run the binary script when the container launches
-CMD ./bin/notificationservice -Dplay.http.secret.key=$PLAY_HTTP_SECRETT ["top", "-b"]
+CMD ./bin/notificationservice -Dplay.http.secret.key=$PLAY_HTTP_SECRET
