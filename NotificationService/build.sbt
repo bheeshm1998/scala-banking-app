@@ -23,3 +23,8 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-stream-kafka" % "2.0.7",
   "com.typesafe.akka" %% "akka-stream" % "2.6.14"
 )
+
+
+libraryDependencies += "com.typesafe.play" %% "filters-helpers" % "2.8.8"
+
+dependencyOverrides += "org.scala-lang.modules" %% "scala-xml" % "2.2.0"

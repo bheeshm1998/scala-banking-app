@@ -1,0 +1,84 @@
+.header-div {
+
+  //background-image: url("https://img.freepik.com/free-vector/hand-drawn-fashion-shop-pattern-background_23-2150849915.jpg?w=2000&t=st=1717135954~exp=1717136554~hmac=70a40d49f3b11e05e41422f40835ca4ce71d485fb6467868dc8ccbc09fa27fa2");
+  background-image: url("https://pbs.twimg.com/media/FJPBdZhaQAAkJUV.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+
+  //display: flex;
+  //flex-direction: column;
+  //justify-items: center;
+  //align-content: center;
+}
+//
+//body {
+//  display: flex;
+//  justify-content: center;
+//}
+
+.login-page-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  .signup-container{
+    padding: 1rem;
+    border: 2px solid darkolivegreen;
+    background-color: #e5ffe5;
+  }
+  .login-container{
+    padding: 1rem;
+    border: 2px solid #394377;
+    background-color: #d6dcfd;
+
+  }
+}
+
+.activity-container {
+  margin: 2rem 2rem 2rem 2rem;
+  display: flex;
+  gap: 1rem;
+
+  flex-direction: column;
+
+  .accounts-info-container{
+    border: solid #f8bdf8 2px;
+    background-color: #ffeaff;
+    padding: 1rem;
+  }
+  .transactions-container{
+    display: flex;
+    gap: 1rem;
+
+    flex-direction: column;
+
+    //border: solid black 2px;
+
+    .deposit-container {
+      border: solid #bb5959 2px;
+      background-color: #f8d0d0;
+      padding: 1rem;
+    }
+    .withdrawal-container {
+      border: solid #659f65 2px;
+      background-color: #d2fbd2;
+      padding: 1rem;
+    }
+    .transfer-container {
+      border: solid #baa478 2px;
+      background-color: #fdf4dd;
+      padding: 1rem;
+    }
+  }
+}
+
+.bank-name{
+  padding: 2rem;
+}
+
+.logout-button{
+  margin-left: calc(100vw - 15%);
+}

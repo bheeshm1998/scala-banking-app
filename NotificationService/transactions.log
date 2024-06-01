@@ -1,0 +1,13 @@
+CREDIT  Deposited 150 to account 8
+CREDIT  Deposited 10023 to account 9
+CREDIT  Deposited 1500 to account 10
+DEBIT  Withdrawn 1500 to account 10
+CREDIT  Deposited 1500 to account 10
+DEBIT  Withdrawn 1500 to account 10
+DEBIT  Withdrawn 100 to account 1
+CREDIT  Deposited 10000 to account 11
+DEBIT  Withdrawn 10000 to account 11
+CREDIT  Deposited 1000000 to account 12
+DEBIT  Withdrawn 19000 to account 12
+CREDIT  Deposited 10000 to account 13
+DEBIT  Withdrawn 1223 to account 13

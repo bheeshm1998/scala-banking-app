@@ -14,3 +14,4 @@ POST    /accounts/add                          controllers.AccountController.cre
 GET     /accounts/:id                          controllers.AccountController.getAccount(id: Int)
 PUT     /accounts/updateBalance/:id            controllers.AccountController.updateBalance(id: Int)
 DELETE  /accounts/:id                          controllers.AccountController.deleteAccount(id: Int)
+GET     /accounts/user/:email                  controllers.AccountController.getAccountId(email: String)

@@ -16,6 +16,7 @@ class TransactionController @Inject()(ws: WSClient, cc: ControllerComponents, tr
     def deposit() = Action.async(parse.json) { implicit request =>
       println("The request is "+ request);
       val accountId = (request.body \ "accountId").as[String]
+      println("Account id is ", accountId);
       val updateUrl = s"$ACCOUNTS_URL:$ACCOUNTS_PORT/accounts/updateBalance/$accountId"
       val accountInfoUrl = s"$ACCOUNTS_URL:$ACCOUNTS_PORT/accounts/$accountId"
       println("URL is "+ updateUrl)
@@ -123,7 +124,7 @@ class TransactionController @Inject()(ws: WSClient, cc: ControllerComponents, tr
     }
 
   val ACCOUNTS_URL = "http://localhost"
-  val ACCOUNTS_PORT = "9001"
+  val ACCOUNTS_PORT = "9002"
 
   def getAllTransactions() = Action.async { implicit request =>
     println("Printing request body" + request.body);

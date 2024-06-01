@@ -34,6 +34,27 @@ class UserController @Inject()(cc: ControllerComponents, userService: UserServic
     }
   }
 
+  def userLogin() = Action.async(parse.json) { implicit request =>
+    val password = (request.body \ "password").as[String];
+    val email = (request.body \ "email").as[String];
+    val userId = (request.body \ "userId").as[String];
+    try {
+      userService.getUser(userId.toInt).map {
+        case Some(user) => {
+          if(user.password == password && email == user.email){
+            Ok(Json.toJson(user))
+          } else{
+            NotFound("Wrong Credentials")
+          }
+        }
+        case None => NotFound("User not found")
+      }
+    } catch {
+      case ex: Exception => Future(NotFound("Could not login, some error occurred"))
+    }
+
+  }
+
   def updateUser(id: Int) = Action.async(parse.json) { implicit request =>
     val name = (request.body \ "name").as[String]
     val email = (request.body \ "email").as[String]

@@ -28,6 +28,15 @@ class AccountController @Inject()(cc: ControllerComponents, accountService: Acco
     }
   }
 
+  def getAccountId(email: String) = Action.async { implicit request =>
+
+    accountService.getAccountIdFromUserId(email).map {
+      case Some(account) => Ok(Json.toJson(account))
+      case None => NotFound("Account not found")
+    }
+
+  }
+
   def updateBalance(id: Int) = Action.async(parse.json) { implicit request =>
     println("request is "+ request + " request body " + request.body);
     val balance= (request.body \ "balance").as[String]

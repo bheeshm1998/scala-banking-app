@@ -14,12 +14,13 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 #POST    /users                  controllers.UserController.createUser
 #PUT     /users/:id              controllers.UserController.updateUser(id: Long)
 #DELETE  /users/:id              controllers.UserController.deleteUser(id: Long)
-
++nocsrf
 GET     /users/getAll                       controllers.UserController.listUsers()
 POST    /users/add                      controllers.UserController.createUser()
 GET     /users/:id                          controllers.UserController.getUser(id: Int)
 PUT     /users/update/:id                   controllers.UserController.updateUser(id: Int)
 DELETE  /users/delete/:id                   controllers.UserController.deleteUser(id: Int)
+POST     /users/user/login                        controllers.UserController.userLogin()
 #GET     /users/transactions/:id             controllers.UserController.getUserTransactions(id: Int)
 
 

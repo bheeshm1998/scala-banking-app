@@ -16,6 +16,11 @@ libraryDependencies ++= Seq(
   "mysql" % "mysql-connector-java" % "8.0.26" // my-sql connector dependency
 )
 
+libraryDependencies += "com.typesafe.play" %% "filters-helpers" % "2.8.8"
+
+dependencyOverrides += "org.scala-lang.modules" %% "scala-xml" % "2.2.0"
+
+
 // Adds additional packages into Twirl
 //TwirlKeys.templateImports += "com.example.controllers._"
 

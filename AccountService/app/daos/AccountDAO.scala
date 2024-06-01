@@ -40,4 +40,13 @@ class AccountDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvide
   def findAll(): Future[Seq[Account]] = {
     db.run(accounts.result)
   }
+
+  def findAccountByUserEmail(email: String): Future[Option[Account]] = {
+    println("the email to find is " + email);
+    val query = accounts.filter(_.username === email).result.headOption
+    val queryResult = db.run(query)
+    queryResult.onComplete(println)
+    queryResult
+  }
+
 }

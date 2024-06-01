@@ -28,6 +28,10 @@ class AccountService @Inject()(accountDAO: AccountDAO)(implicit ec: ExecutionCon
     accountDAO.findById(id)
   }
 
+  def getAccountIdFromUserId(email: String): Future[Option[Account]] ={
+    accountDAO.findAccountByUserEmail(email);
+  }
+
   def listAccounts(): Future[Seq[Account]] = {
     accountDAO.findAll()
   }
