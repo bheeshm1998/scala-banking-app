@@ -18,6 +18,26 @@ services:
     image: consumerkafka1
     ports:
       - "8090:8090"
+  account-service-container :
+    image: account-service
+    ports:
+      - "9002:9002"
+  transaction-service-container :
+    image: transaction-service
+    ports:
+      - "9003:9003"
+  notification-service-container :
+    image: notification-service
+    ports:
+      - "9004:9004"
+  user-service-container :
+    image: user-service
+    ports:
+      - "9001:9001"
+  ui-container :
+    image: ui-image
+    ports:
+      - "80:80"
   kafka1:
     image: confluentinc/cp-kafka:7.3.2
     hostname: kafka1
