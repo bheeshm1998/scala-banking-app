@@ -20,7 +20,7 @@ RUN npm run build --prod
 FROM nginx:1.21-alpine
 
 # Copy the build output to the NGINX HTML directory
-COPY --from=build /app/dist/ui /usr/share/nginx/html
+COPY --from=build /app/dist/ui/browser /usr/share/nginx/html
 
 # Copy the NGINX configuration file
 COPY nginx.conf /etc/nginx/conf.d/default.conf
