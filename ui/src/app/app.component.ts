@@ -49,6 +49,20 @@ export class AppComponent {
     this.makeApiCall();
   }
 
+  env: any = window['env'];
+
+  get usersAPIEndpoint(): string {
+    return this.env.usersAPIEndpoint || 'http://localhost:9001/users';  // default value if not set
+  }
+
+  get accountAPIEndpoint(): string {
+    return this.env.accountAPIEndpoint || 'http://localhost:9002/users';  // default value if not set
+  }
+
+  get transactionAPIEndpoint(): string {
+    return this.env.transactionAPIEndpoint || 'http://localhost:9003/users';  // default value if not set
+  }
+
   makeApiCall(){
     this.http.get("http://35.200.157.92:9007").subscribe((res: any) => console.log("PURVI" , res))
   }
@@ -57,12 +71,12 @@ export class AppComponent {
 
     console.log("validity status ", this.simpleForm.valid)
       console.log("Form Value "+ this.simpleForm.value);
-      this.http.post('http://localhost:9001/users/add', this.simpleForm.value)
+      this.http.post(`${this.usersAPIEndpoint}/add`, this.simpleForm.value)
         .subscribe((response: any) => {
           console.log('Form Submitted!', this.simpleForm.value);
           console.log('API response', response);
 
-          this.http.post('http://localhost:9002/accounts/add', {
+          this.http.post(`${this.accountAPIEndpoint}/add`, {
             "accountType": response.role,
             "username": response.email
           })
@@ -99,7 +113,7 @@ export class AppComponent {
   }
 
   depositMoney(accountId: any, amount: Number) {
-    this.http.post('http://localhost:9003/transactions/deposit', {
+    this.http.post(`${this.transactionAPIEndpoint}/deposit`, {
       "accountId": accountId.toString(),
       "amount": amount.toString()
     })
@@ -112,7 +126,7 @@ export class AppComponent {
   }
 
   withdrawMoney(accountId: any, amount: Number) {
-    this.http.post('http://localhost:9003/transactions/withdraw', {
+    this.http.post(`${this.transactionAPIEndpoint}/withdraw`, {
       "accountId": accountId.toString(),
       "amount": amount.toString()
     })
@@ -125,7 +139,7 @@ export class AppComponent {
   }
 
   transferMoney(accountId: any, amount: Number) {
-    this.http.post('http://localhost:9003/transactions/transfer', {
+    this.http.post(`${this.transactionAPIEndpoint}/transfer`, {
       "fromAccountId": this.currentAccountId.toString(),
       "toAccountId": accountId.toString(),
       "amount": amount.toString()
@@ -139,7 +153,7 @@ export class AppComponent {
   }
 
   getAccountDetails(accountId: String): void {
-    this.http.get(`http://localhost:9002/accounts/${accountId}`)
+    this.http.get(`${this.accountAPIEndpoint}/${accountId}`)
       .subscribe((response: any) => {
         this.userRole = response.role;
         this.accountBalance = response.balance;
@@ -157,11 +171,11 @@ export class AppComponent {
   }
 
   onSubmitLoginForm(){
-    this.http.post('http://localhost:9001/users/user/login', this.loginForm.value)
+    this.http.post(`${this.usersAPIEndpoint}/user/login`, this.loginForm.value)
       .subscribe((response: any) => {
         console.log('Form Submitted!', this.simpleForm.value);
         console.log('API response', response);
-        this.http.get(`http://localhost:9002/accounts/user/${this.loginForm.controls["email"].value}`).subscribe((res: any) =>{
+        this.http.get(`${this.accountAPIEndpoint}user/${this.loginForm.controls["email"].value}`).subscribe((res: any) =>{
           this.currentAccountId = res.id;
           this.getAccountDetails(this.currentAccountId);
         })

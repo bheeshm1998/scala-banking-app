@@ -25,8 +25,11 @@ COPY --from=build /app/dist/ui/browser /usr/share/nginx/html
 # Copy the NGINX configuration file
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
+COPY env.js /usr/share/nginx/html/assets/env.js
+
 # Expose port 80 to the outside world
 EXPOSE 80
 
 # Start NGINX when the container has started
-CMD ["nginx", "-g", "daemon off;"]
+# CMD ["nginx", "-g", "daemon off;"]
+CMD ["sh", "-c", "envsubst < /usr/share/nginx/html/assets/env.js > /usr/share/nginx/html/assets/env.js && exec nginx -g 'daemon off;'"]
