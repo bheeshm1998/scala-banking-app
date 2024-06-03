@@ -22,17 +22,20 @@
 .login-page-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
 
   .signup-container{
     padding: 1rem;
     border: 2px solid darkolivegreen;
     background-color: #e5ffe5;
+    width: 40%;
   }
   .login-container{
     padding: 1rem;
     border: 2px solid #394377;
     background-color: #d6dcfd;
+    width: 40%;
+
 
   }
 }

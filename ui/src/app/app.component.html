@@ -115,7 +115,7 @@
         <h2>Deposit money</h2>
         <div class="mb-3">
           <label for="depositFormInput" class="form-label">Amount to deposit</label>
-          <input [formControl]="depositForm" type="number" class="form-control" id="depositFormInput" placeholder="1000">
+          <input [formControl]="depositForm" type="number" class="form-control" id="depositFormInput">
         </div>
         <button class="btn btn-primary" (click)="onClickDepositConfirm()">Confirm</button>
 
@@ -124,7 +124,7 @@
         <h2>Withdraw money</h2>
         <div class="mb-3">
           <label for="withdrawFormInput" class="form-label">Amount to withdraw</label>
-          <input [formControl]="withdrawForm" type="number" class="form-control" id="withdrawFormInput" placeholder="1000">
+          <input [formControl]="withdrawForm" type="number" class="form-control" id="withdrawFormInput">
         </div>
         <button class="btn btn-primary" (click)="onClickWithdrawConfirm()">Confirm</button>
       </div>
@@ -132,10 +132,10 @@
         <h2>Transfer money</h2>
         <div class="mb-3">
           <label for="accountNumberFormInput" class="form-label">Account number to transfer to</label>
-          <input [formControl]="transferToAccountNumberForm" type="number" class="form-control" id="accountNumberFormInput" placeholder="1000">
+          <input [formControl]="transferToAccountNumberForm" type="number" class="form-control" id="accountNumberFormInput">
 
           <label for="transferAmountFormInput" class="form-label">Amount</label>
-          <input [formControl]="transferAmountForm" type="number" class="form-control" id="transferAmountFormInput" placeholder="1000">
+          <input [formControl]="transferAmountForm" type="number" class="form-control" id="transferAmountFormInput">
         </div>
         <button class="btn btn-dark" (click)="onClickTransferConfirm()">Confirm</button>
       </div>

@@ -19,6 +19,8 @@ class TransactionDao @Inject()(protected val dbConfigProvider: DatabaseConfigPro
     db.run(transactions.result)
   }
 
+  def insert(transaction: Transaction): Future[Int] = db.run((transactions returning transactions.map(_.id)) += transaction)
+
 
 
 }

@@ -27,8 +27,4 @@ class KafkaProducerService @Inject()(config: Config) {
     val record = new ProducerRecord[String, String](topic, key, value)
     producer.send(record)
   }
-
-  def close(): Unit = {
-    producer.close()
-  }
 }

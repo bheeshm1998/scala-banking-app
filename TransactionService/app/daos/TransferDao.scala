@@ -19,4 +19,6 @@ class TransferDao @Inject()(protected val dbConfigProvider: DatabaseConfigProvid
     db.run(transfers.result)
   }
 
+  def insert(transfer: Transfer): Future[Int] = db.run((transfers returning transfers.map(_.id)) += transfer)
+
 }

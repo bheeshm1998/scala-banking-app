@@ -22,5 +22,6 @@ PUT     /users/update/:id                   controllers.UserController.updateUse
 DELETE  /users/delete/:id                   controllers.UserController.deleteUser(id: Int)
 POST     /users/user/login                        controllers.UserController.userLogin()
 #GET     /users/transactions/:id             controllers.UserController.getUserTransactions(id: Int)
+#GET     /users/images/                      controllers.UserController.getImage()getImage
 
 

@@ -11,3 +11,14 @@ CREDIT  Deposited 1000000 to account 12
 DEBIT  Withdrawn 19000 to account 12
 CREDIT  Deposited 10000 to account 13
 DEBIT  Withdrawn 1223 to account 13
+CREDIT  Deposited 1000 to account 15
+CREDIT  Deposited 10000 to account 16
+DEBIT  Withdrawn 5000 to account 16
+TRANSFER Transferred 1000 from 16 to 1
+TRANSFER Transferred 1000 from 16 to 3
+CREDIT  Deposited 1000 to account 17
+DEBIT  Withdrawn 23 to account 17
+TRANSFER Transferred 340 from 17 to 3
+CREDIT  Deposited 50000 to account 18
+DEBIT  Withdrawn 2345 to account 18
+TRANSFER Transferred 1000 from 18 to 3
